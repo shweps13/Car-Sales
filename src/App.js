@@ -1,4 +1,6 @@
 import React from 'react';
+import { createStore } from 'redux';
+import rootReducer from './reducers';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -30,6 +32,8 @@ const App = () => {
   const buyItem = item => {
     // dipsatch an action here to add an item
   };
+
+  const store = createStore(rootReducer);
 
   return (
     <div className="boxes">
