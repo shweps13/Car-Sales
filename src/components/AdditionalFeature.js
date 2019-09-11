@@ -6,10 +6,8 @@ const AdditionalFeature = props => {
 
   const addCost = e => {
     e.stopPropagation();
-    props.updatePrice(currentPrice);
+    props.updatePrice(props.feature);
   };
-
-  const currentPrice = props.feature;
 
   return (
     <li>

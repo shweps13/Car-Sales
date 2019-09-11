@@ -34,7 +34,7 @@ export const initialState = {
         }
 
     case DELETE_COST:
-      console.log('Option was deleted');
+      console.log(`Option "${action.payload.name}" was removed`);
         return {
             ...state,
             additionalPrice: state.additionalPrice - action.payload.price,
