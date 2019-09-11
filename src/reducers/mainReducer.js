@@ -1,4 +1,5 @@
 import { ADD_COST } from '../actions/index';
+import { DELETE_COST } from '../actions/index';
 
 export const initialState = {
     additionalPrice: 0,
@@ -21,8 +22,7 @@ export const initialState = {
   console.log(action);
   switch (action.type) {
     case ADD_COST:
-      console.log('Option was added');
-      {
+      console.log(`Option "${action.payload.name}" was added`);
         return {
             ...state,
             additionalPrice: state.additionalPrice + action.payload.price,
@@ -32,10 +32,18 @@ export const initialState = {
             },
             store: state.store.filter(item => item.id !== action.payload.id)
         }
-    }
+
+    case DELETE_COST:
+      console.log('Option was deleted');
         return {
-            state
-        };
+            ...state,
+            additionalPrice: state.additionalPrice - action.payload.price,
+            car:{...state.car,
+              features: state.car.features.filter(item =>
+              item.id !== action.payload.id)
+          },
+          store: [...state.store, action.payload]
+        }
     default:
       return state;
   }
