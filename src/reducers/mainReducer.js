@@ -1,10 +1,10 @@
 import { ADD_COST } from '../actions/index';
 
-const initialState = {
+export const initialState = {
     additionalPrice: 0,
     car: {
       price: 26395,
-      name: '2019 Ford Mustang',
+      name: '2019000 Ford Mustang',
       image:
         'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
       features: []
@@ -17,7 +17,7 @@ const initialState = {
     ]
   };
 
-const mainReducer = (state = initialState, action) => {
+  export const mainReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
     case ADD_COST:
