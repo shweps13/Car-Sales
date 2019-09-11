@@ -21,11 +21,20 @@ export const initialState = {
   console.log(action);
   switch (action.type) {
     case ADD_COST:
-      console.log('Is the action getting here????');
-      return {
-        ...state,
-        price: action.payload
-      };
+      console.log('Option was added');
+      if (!state.car.features.includes(action.payload)){
+        return {
+            ...state,
+            additionalPrice: state.additionalPrice + action.payload.price,
+            car: {
+                ...state.car,
+                features: [...state.car.features,action.payload]
+            }
+        }
+    }
+        return {
+            state
+        };
     default:
       return state;
   }
