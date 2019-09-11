@@ -22,14 +22,15 @@ export const initialState = {
   switch (action.type) {
     case ADD_COST:
       console.log('Option was added');
-      if (!state.car.features.includes(action.payload)){
+      {
         return {
             ...state,
             additionalPrice: state.additionalPrice + action.payload.price,
             car: {
                 ...state.car,
                 features: [...state.car.features,action.payload]
-            }
+            },
+            store: state.store.filter(item => item.id !== action.payload.id)
         }
     }
         return {
